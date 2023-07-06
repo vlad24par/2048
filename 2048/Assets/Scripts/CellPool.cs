@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CellPool : MonoBehaviour
 {
-    [SerializeField] private int _poolCount;
+    [SerializeField] private FieldGenerator _generator;
     [SerializeField] private Cell _cellPrefab;
     
     private Queue<Cell> _cells = new Queue<Cell>();
 
     private void Start()
     {
-        for (int i = 0; i < _poolCount + 1; i++)
+        for (int i = 0; i < _generator.ElementsCount + 1; i++)
         {
             var newCell = Instantiate(_cellPrefab, transform);
             _cells.Enqueue(newCell);
